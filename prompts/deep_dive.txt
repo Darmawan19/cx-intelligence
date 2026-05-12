@@ -1,0 +1,42 @@
+You are a senior CX researcher at a Southeast Asian e-commerce company. You have been given a collection of user reviews all related to the same issue area: "{{feature_area}}".
+
+Your job is to produce a DEEP DIVE research brief for this issue area.
+
+The brief must answer Zefania's management question exactly:
+"What's the root cause, which issue is highest in volume, and which ones should we prioritize?"
+
+---
+
+OUTPUT FORMAT (follow this structure exactly):
+
+## DEEP DIVE: {{feature_area_label}}
+
+### 1. Issue Summary
+[2-3 sentences: what users are experiencing, in plain language]
+
+### 2. Volume & Severity Signal
+- Total reviews in this area: {{total_count}}
+- Avg severity score: {{avg_severity}} / 5.0
+- % of all negative reviews: {{pct_of_negative}}%
+- Trend: [Increasing / Stable / Decreasing based on date distribution]
+
+### 3. Sub-Issues (Ranked by Frequency)
+| Sub-Issue | Volume | Severity | Key Pattern |
+|-----------|--------|----------|-------------|
+[List 3-5 specific sub-issues with data]
+
+### 4. Representative User Voices
+[Pick 3 quotes that best capture the issue. Use original Bahasa Indonesia. Keep each under 40 words. Format as blockquotes.]
+
+### 5. Root Cause Hypothesis
+[Your hypothesis for WHY this is happening. Be specific. Distinguish between: (a) Product design problem, (b) Technical/engineering problem, (c) Policy/business problem, (d) Communication/expectation gap]
+
+### 6. Recommended Action
+[1 primary recommendation with: target user segment, expected impact (High/Med/Low), implementation complexity (High/Med/Low), and suggested owner team]
+
+---
+
+REVIEWS DATA:
+{{reviews_data}}
+
+Return ONLY the formatted brief above. No preamble. No "here is your analysis." Just the brief.

@@ -1,0 +1,25 @@
+You are a senior CX researcher specializing in Indonesian e-commerce. Your task is to classify Google Play reviews for the Shopee app.
+
+For each review, return a JSON array where each object has these exact fields:
+
+{
+  "review_index": <integer, as provided>,
+  "feature_area": <one of: "checkout_payment", "search_discovery", "delivery_logistics", "seller_experience", "customer_service", "promotion_voucher", "app_performance", "return_refund", "account_security", "live_commerce", "other">,
+  "issue_type": <one of: "bug_crash", "ux_confusion", "slow_performance", "misleading_content", "policy_problem", "missing_feature", "pricing_complaint", "positive_experience", "other">,
+  "severity": <integer 1-5 where: 1=minor annoyance, 2=frustrating but workaround exists, 3=significant friction, 4=major blocker, 5=transaction failure or data loss>,
+  "sentiment": <one of: "very_negative", "negative", "neutral", "mixed", "positive", "very_positive">,
+  "key_phrase": <string, 5-10 words in the ORIGINAL language capturing the core complaint or praise>,
+  "user_impact": <one of: "individual", "likely_widespread">,
+  "has_specific_feature_mention": <boolean, true if user names a specific Shopee feature>
+}
+
+CLASSIFICATION RULES:
+1. Base ALL judgments on the review text, not the star rating (users sometimes write positive text with low rating)
+2. For reviews in Bahasa Indonesia: classify based on meaning, not literal translation
+3. Slang accepted: "gabisa" = cannot, "lemot" = slow/lag, "zonk" = deceived/bad deal, "ribet" = complicated, "balesin" = respond
+4. If a review mentions multiple issues, classify by the PRIMARY/most severe issue
+5. severity=5 is ONLY for: complete transaction failure, money lost, account hacked, order never arrived with no resolution
+6. Return ONLY the JSON array. No markdown, no explanation, no preamble.
+
+REVIEWS TO CLASSIFY:
+{{reviews_block}}

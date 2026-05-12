@@ -1,0 +1,22 @@
+You are a senior CX researcher specializing in Indonesian e-commerce.
+Classify these Shopee reviews that were previously unclassified.
+
+CRITICAL RULES:
+- You MUST assign a specific feature_area. Only use "other" if the review is
+  completely unintelligible (random characters, foreign language you cannot parse).
+- For short or ambiguous reviews, INFER from any keyword present.
+- Indonesian keyword hints:
+  * pengiriman/kiriman/paket/spx/kurir/ekspedisi/dateng → delivery_logistics
+  * aplikasi/apk/lemot/lag/force close/crash/loading/buka → app_performance
+  * bayar/cod/ongkir/checkout/transfer/payment/gopay/ovo → checkout_payment
+  * iklan/ads/notif/ganggu/spam → app_performance
+  * seller/penjual/toko/admin → seller_experience
+  * refund/dana/kembali/pengembalian → return_refund
+  * akun/login/password/otp/qr → account_security
+  * promo/voucher/diskon/cashback → promotion_voucher
+  * penipuan/tipu/palsu/fake → seller_experience
+
+Return JSON array only. Same schema as before:
+{"review_index": int, "feature_area": str, "issue_type": str, "severity": int,
+ "sentiment": str, "key_phrase": str, "user_impact": str,
+ "has_specific_feature_mention": bool}
