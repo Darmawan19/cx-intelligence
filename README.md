@@ -1,4 +1,4 @@
-# Shopee CX Intelligence Tool
+# cx-intelligence
 ### AI-Augmented Consumer Listening Pipeline
 
 AI-augmented consumer listening pipeline for Ecommerce in Indonesia — Python + Claude API
