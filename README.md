@@ -1,7 +1,7 @@
 # Shopee CX Intelligence Tool
 ### AI-Augmented Consumer Listening Pipeline
 
-A research tool that transforms raw Google Play reviews into a structured consumer listening report — extracting user pain points, classifying them by feature area and severity, and generating prioritized findings with root cause analysis.
+AI-augmented consumer listening pipeline for Ecommerce in Indonesia — Python + Claude API
 
 Built as a portfolio project for a CX Researcher role at Shopee Indonesia.
 
@@ -43,8 +43,8 @@ This is not a one-shot API call. It's a multi-step research pipeline with qualit
 
 ```bash
 # 1. Clone and install
-git clone https://github.com/Darmawan19/shopee-cx-intelligence
-cd shopee-cx-intelligence
+git clone https://github.com/Darmawan19/cx-intelligence
+cd cx-intelligence
 pip install -r requirements.txt
 
 # 2. Configure
@@ -81,7 +81,7 @@ Maps to RICE (Reach × Impact × Confidence). Effort excluded — researcher's r
 ## Project Structure
 
 ```
-shopee-cx-intelligence/
+cx-intelligence/
 ├── pipeline.py              # Main orchestrator — run this
 ├── requirements.txt
 ├── .env.example
