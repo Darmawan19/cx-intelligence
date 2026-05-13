@@ -101,6 +101,16 @@ def step2_classify(df: pd.DataFrame, args) -> tuple[pd.DataFrame, dict]:
         sys.exit(1)
     
     save_classified(classified, quality_report, CLASSIFIED_PATH)
+
+    other_pct = (classified["feature_area"] == "other").mean() * 100
+    if other_pct > 20:
+        print(f"\n[CLASSIFIER] 'Other' bucket {other_pct:.1f}% > 20% threshold — running re-classification pass...")
+        import reclassify_other
+        classified = reclassify_other.run(classified)
+        classified = pd.read_csv(CLASSIFIED_PATH, parse_dates=["date"])
+        new_pct = (classified["feature_area"] == "other").mean() * 100
+        print(f"[CLASSIFIER] Re-classification done — 'other' reduced to {new_pct:.1f}%")
+
     return classified, quality_report
 
 
