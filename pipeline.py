@@ -24,6 +24,7 @@ import os
 import sys
 import json
 import argparse
+import subprocess
 import pandas as pd
 from datetime import datetime
 from dotenv import load_dotenv
@@ -221,6 +222,8 @@ def main():
     deep_dives, exec_summary = step5_synthesize(results)
     report_path = step6_report(results, deep_dives, exec_summary, quality_report)
     findings_path = step7_findings_md(results, deep_dives, exec_summary)
+
+    subprocess.run(["python", "scripts/monthly_summary.py"], check=False)
 
     # ── Final summary ───────────────────────────────────────────────────────────
     elapsed = (datetime.now() - start_time).seconds
